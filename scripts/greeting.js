@@ -11,32 +11,32 @@ function saveName(text) {
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = input.value;
-  paintGreetin(currentValue);
+  paintGreeting(currentValue);
   saveName(currentValue);
 }
 
-fuction askForName() {
-    form.classList.add(SHOWING_CN);
-    form.addEventListener('submit', handleSubmit);
+function askForName() {
+  form.classList.add(SHOWING_CN);
+  form.addEventListener("submit", handleSubmit);
 }
 
-fuction paintGreeting(text) {
-    form.classList.remove(SHOWING_CN);
-    greeting.classList.add(SHOWING_CN);
-    greeting.innerText = `Hola! ${text}!`;
+function paintGreeting(text) {
+  form.classList.remove(SHOWING_CN);
+  greeting.classList.add(SHOWING_CN);
+  greeting.innerText = `Hola! ${text}!`;
 }
 
 function loadName() {
-const currentUser = localStorage.getItem(USER_LS);
-if (currentUser === null) {
-askForName();
-} else {
+  const currentUser = localStorage.getItem(USER_LS);
+  if (currentUser === null) {
+    askForName();
+  } else {
     paintGreeting(currentUser);
-}
+  }
 }
 
 function init() {
-    loadName();
+  loadName();
 }
 
 init();
